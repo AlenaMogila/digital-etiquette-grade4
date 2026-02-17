@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>🧸 Инструкция по работе с доской IDroo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card {
+            max-width: 800px;
+            background: white;
+            border-radius: 40px;
+            padding: 40px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            border: 5px solid #ffd966;
+        }
+        h1 {
+            color: #2b3a67;
+            font-size: 36px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            border-bottom: 4px solid #ffb347;
+            padding-bottom: 15px;
+        }
+        h2 {
+            color: #2b3a67;
+            font-size: 26px;
+            margin: 25px 0 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        h2:before {
+            content: "🔹";
+            font-size: 24px;
+        }
+        .step-box {
+            background: #f0f5ff;
+            border-radius: 25px;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 12px solid #4a6fa5;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .step-item {
+            font-size: 18px;
+            padding: 10px 0;
+            border-bottom: 1px dashed #b0c4de;
+        }
+        .step-item:last-child {
+            border-bottom: none;
+        }
+        .button {
+            background: #4a6fa5;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px 0;
+            box-shadow: 0 3px 0 #2b3a67;
+        }
+        .tip {
+            background: #fff9e6;
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 3px dashed #ffb347;
+            font-size: 18px;
+        }
+        .colors {
+            display: flex;
+            gap: 15px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+        .color-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: inline-block;
+            border: 3px solid #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 18px;
+        }
+        td {
+            padding: 15px;
+            border-radius: 20px;
+        }
+        .good {
+            background: #d4edda;
+            border: 3px solid #28a745;
+        }
+        .bad {
+            background: #f8d7da;
+            border: 3px solid #dc3545;
+        }
+        .emoji-large {
+            font-size: 32px;
+        }
+        .help-box {
+            background: #fff3cd;
+            border-radius: 40px;
+            padding: 30px;
+            text-align: center;
+            margin: 30px 0;
+            border: 4px solid #ffc107;
+        }
+        .help-text {
+            font-size: 32px;
+            font-weight: bold;
+            color: #856404;
+            margin: 15px 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: #e6e9f0;
+            border-radius: 60px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #2b3a67;
+        }
+        .badge {
+            background: #ffd966;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-weight: bold;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>
+            <span>🧸</span>
+            ИНСТРУКЦИЯ ПО РАБОТЕ С ДОСКОЙ IDroo
+            <span>🖍️</span>
+        </h1>
+
+        <!-- ШАГ 1: КАК ЗАЙТИ -->
+        <h2>📍 Как зайти в доску</h2>
+        <div class="step-box">
+            <div class="step-item">
+                <span class="badge">1️⃣</span> Нажми на ссылку, которую я отправил(а) в чат
+            </div>
+            <div class="step-item">
+                <span class="badge">2️⃣</span> Нажми кнопку <span class="button">START DRAWING</span> или <span class="button">Начать рисовать</span>
+            </div>
+            <div class="step-item">
+                <span class="badge">3️⃣</span> <span style="color: green; font-size: 24px;">✅</span> <strong>Готово!</strong> Ты в доске
+            </div>
+        </div>
+
+        <!-- ШАГ 2: КАК ПИСАТЬ -->
+        <h2>✏️ Как писать текст</h2>
+        <div class="step-box">
+            <div class="step-item">1. Найди кнопку с буквой <span class="button">Т</span> (Текст) — она на панели слева</div>
+            <div class="step-item">2. Нажми на неё</div>
+            <div class="step-item">3. Нажми в том месте доски, где хочешь написать</div>
+            <div class="step-item">4. Напечатай слово (например: <strong>"обида"</strong>, <strong>"правило"</strong>, <strong>"спасибо"</strong>)</div>
+            <div class="step-item">5. Нажми клавишу <span class="button">Enter</span></div>
+        </div>
+        
+        <div class="tip">
+            💡 <strong>Совет:</strong> пиши коротко — одно-два слова, чтобы все поместилось!
+        </div>
+
+        <!-- ШАГ 3: КАК РИСОВАТЬ -->
+        <h2>🎨 Как рисовать</h2>
+        <div class="step-box">
+            <div class="step-item">1. Найди кнопку с карандашом <span class="button">✏️</span></div>
+            <div class="step-item">2. Нажми на неё</div>
+            <div class="step-item">3. Рисуй мышкой (на компьютере) или пальцем (на планшете)</div>
+        </div>
+
+        <!-- ШАГ 4: ЦВЕТА -->
+        <h2>🌈 Как менять цвет</h2>
+        <div class="step-box">
+            <div class="step-item">1. Найди цветные кружочки на панели</div>
+            <div class="colors">
+                <div class="color-circle" style="background: #ff4444;"></div>
+                <div class="color-circle" style="background: #ff8c44;"></div>
+                <div class="color-circle" style="background: #ffd966;"></div>
+                <div class="color-circle" style="background: #4caf50;"></div>
+                <div class="color-circle" style="background: #4a6fa5;"></div>
+                <div class="color-circle" style="background: #9b59b6;"></div>
+            </div>
+            <div class="step-item">2. Нажми на любой цвет — 🔴 🟠 🟡 🟢 🔵 🟣</div>
+            <div class="step-item">3. Теперь всё, что ты пишешь или рисуешь, будет этого цвета!</div>
+        </div>
+
+        <!-- ШАГ 5: ЛАСТИК -->
+        <h2>🧽 Как стереть</h2>
+        <div class="step-box">
+            <table>
+                <tr>
+                    <td style="background: #e0e0e0; border-radius: 15px; padding: 15px;">
+                        <strong>Стереть маленькую часть</strong><br>
+                        Выбери ластик и проведи по тому, что хочешь стереть
+                    </td>
+                    <td style="background: #e0e0e0; border-radius: 15px; padding: 15px;">
+                        <strong>Стереть всё сразу</strong><br>
+                        Нажми кнопку "Очистить доску" (но лучше спроси сначала меня!)
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- ПРАВИЛА -->
+        <h2>⭐ Главные правила работы на доске</h2>
+        <table>
+            <tr>
+                <td class="good" style="text-align: center; font-size: 20px;">
+                    ✅ <strong>МОЖНО</strong><br><br>
+                    • Пробовать смело!<br>
+                    • Писать свои идеи<br>
+                    • Спрашивать, если непонятно<br>
+                    • Рисовать и добавлять эмодзи
+                </td>
+                <td class="bad" style="text-align: center; font-size: 20px;">
+                    ❌ <strong>НЕЛЬЗЯ</strong><br><br>
+                    • Бояться ошибиться<br>
+                    • Стирать чужие записи без спроса<br>
+                    • Закрывать вкладку с доской<br>
+                    • Нажимать непонятные кнопки
+                </td>
+            </tr>
+        </table>
+
+        <!-- ПОМОЩЬ -->
+        <h2>🆘 Если что-то пошло не так</h2>
+        <div class="help-box">
+            <div style="font-size: 48px;">📢</div>
+            <div style="font-size: 28px; font-weight: bold;">Просто скажи мне вслух:</div>
+            <div class="help-text">"У МЕНЯ НЕ ПОЛУЧАЕТСЯ!"</div>
+            <div style="font-size: 24px;">или напиши в чат</div>
+            <div style="font-size: 32px; margin: 15px 0;">😊</div>
+            <div style="font-size: 24px; background: white; padding: 15px; border-radius: 50px;">
+                <strong>Я сразу помогу!</strong>
+            </div>
+        </div>
+
+        <!-- ФИНАЛ -->
+        <div class="footer">
+            <div style="font-size: 48px;">🎉</div>
+            <div style="font-size: 28px;">Ты — киберсыщик!</div>
+            <div style="font-size: 20px; margin-top: 10px;">
+                Каждая твоя запись на доске делает наш<br>
+                <strong>Кодекс цифрового гражданина</strong> лучше!
+            </div>
+        </div>
+
+        <!-- P.S. -->
+        <div style="text-align: center; margin-top: 20px; color: #888; font-style: italic;">
+            P.S. Доска не кусается, даже если нажать не ту кнопку 🤭
+        </div>
+    </div>
+</body>
+</html>
