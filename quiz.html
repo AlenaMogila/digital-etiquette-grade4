@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>📝 Тест: Цифровой этикет для 4 класса</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+            background: linear-gradient(145deg, #2b5a7a 0%, #1e3e5a 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .test-card {
+            max-width: 900px;
+            background: white;
+            border-radius: 50px;
+            padding: 40px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            border: 6px solid #ffb347;
+        }
+        h1 {
+            color: #1e3e5a;
+            font-size: 42px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            border-bottom: 5px solid #ffb347;
+            padding-bottom: 15px;
+        }
+        h2 {
+            color: #1e3e5a;
+            font-size: 28px;
+            margin: 30px 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .name-date {
+            background: #e6f2ff;
+            border-radius: 60px;
+            padding: 25px;
+            margin: 20px 0 30px 0;
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            border: 3px dashed #4a6fa5;
+        }
+        .name-field, .date-field {
+            flex: 1;
+            min-width: 200px;
+        }
+        .name-field label, .date-field label {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1e3e5a;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .name-field input, .date-field input {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 18px;
+            border: 3px solid #4a6fa5;
+            border-radius: 50px;
+            outline: none;
+            background: white;
+        }
+        .question {
+            background: #f5f9ff;
+            border-radius: 30px;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 15px solid #ffb347;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .q-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1e3e5a;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .q-number {
+            background: #ffb347;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .option {
+            background: white;
+            border: 3px solid #ccd9f0;
+            border-radius: 60px;
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 18px;
+        }
+        .option:hover {
+            background: #e6f2ff;
+            border-color: #4a6fa5;
+            transform: scale(1.02);
+        }
+        .option input[type="radio"] {
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+        }
+        .option.selected {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+        .letter {
+            font-weight: bold;
+            font-size: 24px;
+            color: #4a6fa5;
+            min-width: 40px;
+        }
+        .calc-btn {
+            background: linear-gradient(145deg, #ffb347, #ff9f1c);
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            padding: 25px 40px;
+            border: none;
+            border-radius: 80px;
+            cursor: pointer;
+            width: 100%;
+            margin: 40px 0 30px 0;
+            box-shadow: 0 10px 0 #b15d00;
+            transition: all 0.1s;
+            border: 3px solid white;
+        }
+        .calc-btn:active {
+            transform: translateY(5px);
+            box-shadow: 0 5px 0 #b15d00;
+        }
+        .result-box {
+            background: #1e3e5a;
+            border-radius: 40px;
+            padding: 30px;
+            margin: 30px 0;
+            color: white;
+            display: none;
+        }
+        .result-box.show {
+            display: block;
+        }
+        .score {
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .level {
+            font-size: 36px;
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 60px;
+        }
+        .level-icon {
+            font-size: 72px;
+            text-align: center;
+            margin: 10px 0;
+        }
+        .level-bars {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .bar {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+        }
+        .description {
+            font-size: 20px;
+            text-align: center;
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+        .challenge {
+            background: #f0f9ff;
+            border-radius: 30px;
+            padding: 25px;
+            margin: 30px 0;
+            color: #1e3e5a;
+        }
+        .challenge h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #ff9f1c;
+        }
+        .challenge-item {
+            font-size: 20px;
+            padding: 12px 0;
+            border-bottom: 2px dashed #ccd9f0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .challenge-item input[type="checkbox"] {
+            width: 24px;
+            height: 24px;
+        }
+        .footer-card {
+            background: #ffe6cc;
+            border-radius: 30px;
+            padding: 25px;
+            text-align: center;
+            margin-top: 30px;
+            border: 4px solid #ff9f1c;
+        }
+        .footer-card .result-value {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        .reset-btn {
+            background: #4a6fa5;
+            color: white;
+            font-size: 20px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-card">
+        <h1>
+            <span>📝</span>
+            МИНИ-ТЕСТ: ЦИФРОВОЙ ЭТИКЕТ
+            <span>✨</span>
+        </h1>
+        
+        <!-- Имя и дата -->
+        <div class="name-date">
+            <div class="name-field">
+                <label>🧒 Имя и фамилия:</label>
+                <input type="text" id="studentName" placeholder="Например: Иван Петров">
+            </div>
+            <div class="date-field">
+                <label>📅 Дата:</label>
+                <input type="text" id="currentDate" placeholder="ДД.ММ.ГГГГ">
+            </div>
+        </div>
+
+        <!-- Вопрос 1 -->
+        <div class="question" id="q1">
+            <div class="q-title"><span class="q-number">1</span> Твой друг прислал смешное фото одноклассника и просит переслать в общий чат. Что ты сделаешь?</div>
+            <div class="options">
+                <label class="option" id="q1a">
+                    <input type="radio" name="q1" value="1"> <span class="letter">А</span> Перешлю — это же смешно, все посмеются
+                </label>
+                <label class="option" id="q1b">
+                    <input type="radio" name="q1" value="3"> <span class="letter">Б</span> Спрошу у того, кто на фото, можно ли показать
+                </label>
+                <label class="option" id="q1c">
+                    <input type="radio" name="q1" value="2"> <span class="letter">В</span> Перешлю, но только лучшим друзьям
+                </label>
+            </div>
+        </div>
+
+        <!-- Вопрос 2 -->
+        <div class="question" id="q2">
+            <div class="q-title"><span class="q-number">2</span> В игре тебе написал незнакомец: "Привет! Скинь номер телефона, я подарок пришлю". Твои действия?</div>
+            <div class="options">
+                <label class="option" id="q2a">
+                    <input type="radio" name="q2" value="1"> <span class="letter">А</span> Отправлю номер — вдруг правда подарок?
+                </label>
+                <label class="option" id="q2b">
+                    <input type="radio" name="q2" value="3"> <span class="letter">Б</span> Не отвечу и напишу родителям
+                </label>
+                <label class="option" id="q2c">
+                    <input type="radio" name="q2" value="2"> <span class="letter">В</span> Напишу: "Отстань" и заблокирую
+                </label>
+            </div>
+        </div>
+
+        <!-- Вопрос 3 -->
+        <div class="question" id="q3">
+            <div class="q-title"><span class="q-number">3</span> В чате кто-то написал грубость про твоего любимого блогера. Как ты поступишь?</div>
+            <div class="options">
+                <label class="option" id="q3a">
+                    <input type="radio" name="q3" value="1"> <span class="letter">А</span> Напишу ему тоже грубость — пусть знает!
+                </label>
+                <label class="option" id="q3b">
+                    <input type="radio" name="q3" value="3"> <span class="letter">Б</span> Напишу: "Мне не нравится, что ты так говоришь. Давай уважать друг друга"
+                </label>
+                <label class="option" id="q3c">
+                    <input type="radio" name="q3" value="2"> <span class="letter">В</span> Промолчу, но расскажу другу
+                </label>
+            </div>
+        </div>
+
+        <!-- Вопрос 4 -->
+        <div class="question" id="q4">
+            <div class="q-title"><span class="q-number">4</span> Ты хочешь попросить у друга домашнее задание. Как вежливо это сделать?</div>
+            <div class="options">
+                <label class="option" id="q4a">
+                    <input type="radio" name="q4" value="1"> <span class="letter">А</span> "Скинь дз"
+                </label>
+                <label class="option" id="q4b">
+                    <input type="radio" name="q4" value="2"> <span class="letter">Б</span> "Привет! Не сделал домашку, скинь плиз"
+                </label>
+                <label class="option" id="q4c">
+                    <input type="radio" name="q4" value="3"> <span class="letter">В</span> "Привет! Можешь помочь с домашним заданием? Буду очень благодарен(на)!"
+                </label>
+            </div>
+        </div>
+
+        <!-- Вопрос 5 -->
+        <div class="question" id="q5">
+            <div class="q-title"><span class="q-number">5</span> Увидел(а) в интернете новость, которая показалась подозрительной. Твои действия?</div>
+            <div class="options">
+                <label class="option" id="q5a">
+                    <input type="radio" name="q5" value="1"> <span class="letter">А</span> Сразу перешлю всем друзьям — пусть знают!
+                </label>
+                <label class="option" id="q5b">
+                    <input type="radio" name="q5" value="3"> <span class="letter">Б</span> Проверю в другом месте или спрошу у взрослых
+                </label>
+                <label class="option" id="q5c">
+                    <input type="radio" name="q5" value="2"> <span class="letter">В</span> Напишу комментарий: "Это фейк!"
+                </label>
+            </div>
+        </div>
+
+        <!-- Кнопка подсчета -->
+        <button class="calc-btn" onclick="calculateScore()">🔍 ПОСЧИТАТЬ РЕЗУЛЬТАТ</button>
+
+        <!-- Блок результата -->
+        <div id="resultBox" class="result-box">
+            <div style="font-size: 32px; text-align: center;">🎯 ТВОЙ РЕЗУЛЬТАТ</div>
+            <div id="scoreDisplay" class="score">0 баллов</div>
+            
+            <div id="levelDisplay" class="level"></div>
+            <div id="levelIcon" class="level-icon"></div>
+            
+            <!-- Полоски результата -->
+            <div id="levelBars" class="level-bars"></div>
+            
+            <div id="levelDescription" class="description"></div>
+            
+            <!-- Карточка результата для вырезания -->
+            <div class="footer-card" id="resultCard">
+                <div style="font-size: 28px;">🏆 МОЙ РЕЗУЛЬТАТ</div>
+                <div class="result-value" id="resultValue">__ баллов</div>
+                <div id="resultEmoji">🔴</div>
+                <div id="resultLevel">Новичок</div>
+                <div style="margin-top: 15px; font-size: 18px;">(нужное обведи)</div>
+            </div>
+        </div>
+
+        <!-- Челлендж -->
+        <div class="challenge">
+            <h3>🎁 БОНУС: ЧЕЛЛЕНДЖ</h3>
+            <p style="font-size: 20px; margin-bottom: 20px;">Попробуй в ближайшую неделю:</p>
+            
+            <div class="challenge-item">
+                <input type="checkbox" id="challenge1"> <label for="challenge1">📱 Написать кому-то доброе сообщение просто так</label>
+            </div>
+            <div class="challenge-item">
+                <input type="checkbox" id="challenge2"> <label for="challenge2">🛡️ Помочь тому, кого обижают в чате</label>
+            </div>
+            <div class="challenge-item">
+                <input type="checkbox" id="challenge3"> <label for="challenge3">🔍 Проверить новость, прежде чем переслать</label>
+            </div>
+            <div class="challenge-item">
+                <input type="checkbox" id="challenge4"> <label for="challenge4">🙏 Сказать "спасибо" тому, кто тебе помог</label>
+            </div>
+            
+            <p style="margin-top: 25px; font-size: 22px; text-align: center; background: white; padding: 15px; border-radius: 50px;">
+                ⭐ Отмечай галочки и становись ЦИФРОВЫМ МАСТЕРОМ!
+            </p>
+        </div>
+
+        <!-- Кнопка сброса -->
+        <button class="reset-btn" onclick="resetTest()">🔄 Пройти заново</button>
+        
+        <div style="text-align: center; margin-top: 20px; color: #888;">
+            😊 Спасибо за тест! Ты молодец!
+        </div>
+    </div>
+
+    <script>
+        // Установка текущей даты
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date();
+            const day = String(today.getDate()).padStart(2, '0');
+            const month = String(today.getMonth() + 1).padStart(2, '0');
+            const year = today.getFullYear();
+            document.getElementById('currentDate').value = `${day}.${month}.${year}`;
+        });
+
+        function calculateScore() {
+            let total = 0;
+            
+            // Проверяем каждый вопрос
+            for (let i = 1; i <= 5; i++) {
+                const radios = document.getElementsByName(`q${i}`);
+                let answered = false;
+                for (let radio of radios) {
+                    if (radio.checked) {
+                        total += parseInt(radio.value);
+                        answered = true;
+                        break;
+                    }
+                }
+                if (!answered) {
+                    alert(`Ответь на вопрос ${i}!`);
+                    return;
+                }
+            }
+            
+            // Показываем блок результата
+            const resultBox = document.getElementById('resultBox');
+            resultBox.classList.add('show');
+            
+            // Отображаем баллы
+            document.getElementById('scoreDisplay').innerHTML = total + ' баллов';
+            document.getElementById('resultValue').innerHTML = total + ' баллов';
+            
+            // Определяем уровень
+            let level = '';
+            let emoji = '';
+            let bars = '';
+            let description = '';
+            let levelColor = '';
+            
+            if (total >= 5 && total <= 8) {
+                level = 'ЦИФРОВОЙ НОВИЧОК';
+                emoji = '🔴';
+                bars = '⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛';
+                description = 'Ты только начинаешь знакомиться с правилами цифрового этикета. Не переживай — всё впереди! Посмотри ещё раз наш Кодекс и в следующий раз будет лучше!';
+                levelColor = '#ff4444';
+                document.getElementById('resultEmoji').innerHTML = '🔴';
+                document.getElementById('resultLevel').innerHTML = 'Новичок';
+            } else if (total >= 9 && total <= 11) {
+                level = 'ЦИФРОВОЙ ПУТЕШЕСТВЕННИК';
+                emoji = '🟡';
+                bars = '🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨';
+                description = 'Ты уже знаешь много правил, но иногда забываешь о чувствах других. Есть куда расти! Попробуй в следующий раз представить себя на месте собеседника!';
+                levelColor = '#ffcc00';
+                document.getElementById('resultEmoji').innerHTML = '🟡';
+                document.getElementById('resultLevel').innerHTML = 'Путешественник';
+            } else if (total >= 12 && total <= 13) {
+                level = 'ЦИФРОВОЙ ЗНАТОК';
+                emoji = '🟢';
+                bars = '🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩';
+                description = 'Отлично! Ты хорошо понимаешь, как вести себя в сети. Ты вежливый и осторожный собеседник!';
+                levelColor = '#4caf50';
+                document.getElementById('resultEmoji').innerHTML = '🟢';
+                document.getElementById('resultLevel').innerHTML = 'Знаток';
+            } else if (total >= 14 && total <= 15) {
+                level = 'ЦИФРОВОЙ МАСТЕР ⭐';
+                emoji = '🟣';
+                bars = '⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐';
+                description = 'Превосходно! Ты не только знаешь правила, но и чувствуешь других людей. С тобой приятно общаться в любом месте!';
+                levelColor = '#9b59b6';
+                document.getElementById('resultEmoji').innerHTML = '🟣';
+                document.getElementById('resultLevel').innerHTML = 'Мастер ⭐';
+            }
+            
+            document.getElementById('levelDisplay').innerHTML = emoji + ' ' + level;
+            document.getElementById('levelIcon').innerHTML = emoji;
+            document.getElementById('levelBars').innerHTML = '<div class="bar" style="background: ' + levelColor + ';"></div>'.repeat(14);
+            document.getElementById('levelDescription').innerHTML = description;
+            
+            // Плавный скролл к результату
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function resetTest() {
+            // Сбрасываем все радио-кнопки
+            for (let i = 1; i <= 5; i++) {
+                const radios = document.getElementsByName(`q${i}`);
+                for (let radio of radios) {
+                    radio.checked = false;
+                }
+            }
+            
+            // Сбрасываем чекбоксы челленджа
+            for (let i = 1; i <= 4; i++) {
+                document.getElementById(`challenge${i}`).checked = false;
+            }
+            
+            // Прячем блок результата
+            document.getElementById('resultBox').classList.remove('show');
+            
+            // Прокручиваем наверх
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Подсветка выбранного варианта
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function() {
+                const radio = this.querySelector('input[type="radio"]');
+                radio.checked = true;
+                
+                // Убираем подсветку у всех опций в этом вопросе
+                const parent = this.closest('.question');
+                parent.querySelectorAll('.option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                
+                // Подсвечиваем выбранную
+                this.classList.add('selected');
+            });
+        });
+    </script>
+</body>
+</html>
